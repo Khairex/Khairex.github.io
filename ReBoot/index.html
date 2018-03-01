@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Reboot Code Hacker</title>
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="shortcut icon" href="TemplateData/favicon.png" />
+    <script src="TemplateData/UnityProgress.js"></script>
+</head>
+<body class="template">
+    <div class="template-wrap clear">
+        <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="854px" width="480px"></canvas>
+        <div id="bg"></div>
+        <div id="loadingBox">
+            <div id="bgBar"></div>
+            <div id="progressBar"></div>
+            <p id="loadingInfo">Loading...</p>
+        </div>
+        <div id="runningBox">
+            <p id="runningInfo">This May Take A Minute</p>
+        </div>
+        <img id="logo" src="TemplateData/RebootLogo.gif" style="display: block; position: absolute; transform: translate(-50%, 0); left: 50%; top: 25%;" />
+        <img id="spinner" src="TemplateData/spinner.gif" style="display: none; position: absolute; transform: translate(-50%, 0); left: 50%; top: 55%;" />
+    </div>
+    <script type='text/javascript'>
+  var Module = {
+    TOTAL_MEMORY: 536870912,
+    errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
+    compatibilitycheck: null,
+    dataUrl: "Release/WebGLTest.data",
+    codeUrl: "Release/WebGLTest.js",
+    memUrl: "Release/WebGLTest.mem",
+    
+  };
+</script>
+<script src="Release/UnityLoader.js"></script>
+
+</body>
+</html>
