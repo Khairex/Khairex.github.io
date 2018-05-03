@@ -33,7 +33,6 @@ $(function() {
 
     setInterval(function () {
 		doResize();
-        alert("resized!");
     }, 300);
 });
 	
@@ -42,17 +41,15 @@ function doResize()
   
 	var scale, origin;
     var parentDivHeight = $iframe.parent().height();
-	var newRatio = parentDivHeight / 854;
+	var newRatio = $(window).height / 854;
 	scale = 1.0;
 	if(newRatio < 1.0)
 	{
 		scale = newRatio;
 	}
-
-	var test = 0.4;
 	
   $iframe.css({
-    transform:"scale(" + test + ")"
+    transform:"scale(" + scale + ")"
   });
 
 /*
