@@ -44,14 +44,17 @@ var elWidth = $iframe.outerWidth();
 	
 var $wrapper = $("#scaleable-wrapper");
 	
-$(function () {
+$(function () 
+{
     doResize();
-    $(window).resize(function () {
+    $(window).resize(function () 
+    {
         doResize();
     });
 });
 	
-function doResize() {
+function doResize() 
+{
   
 	var scale, origin;
     var parentDivHeight = iframe.parent().height();
@@ -84,12 +87,6 @@ function doResize() {
   });
   */
 }
-
-var starterData = { 
-  size: {
-    width: $wrapper.width(),
-    height: $wrapper.height()
- }
 </script>
 	
 <div class="scalable-wrapper">
