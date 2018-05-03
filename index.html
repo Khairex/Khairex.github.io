@@ -22,41 +22,15 @@
 }
 </style>
 
-<script language="JavaScript" type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
-<script language="JavaScript" type="text/javascript" src="/js/jquery-ui-personalized-1.5.2.packed.js"></script>
-<script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script>
+
 <script type='text/javascript'>
-$(function () {
-    onResize();
-    $(window).resize(function () {
-        onResize();
-    });
-});
-
-function setIFrameSize() {
-    var ogWidth = 480;
-    var ogHeight = 854;
-    var ogRatio = ogHeight / ogWidth;
-
-    var windowHeight = $(window).height();
-    if (windowHeight < 450) {
-        var parentDivHeight = $(".iframe-class").parent().height();
-        var newWidth = (parentDivHeight / ogRatio);
-	    var newRatio = parentDivHeight / ogHeight;
-        $(".iframe-class").addClass("iframe-class-resize");
-        $(".iframe-class-resize").css("height", parentDivHeight);
-        $(".iframe-class-resize").css("width", newWidth);
-		$(".iframe-class-resize").css("transform", scale(newRatio));
-    } else {
-        $(".iframe-class").removeClass("iframe-class-resize").css({ width : '', height : '', transform : '' });
-    }
-}
-	
+(function (win, doc) {
   /** Below this point the scaling takes effect. */
   var BREAKPOINT = 854;  
   
   /** Defining the inital iframe-height. */
-  var IFRAME_HEIGHT = parseInt(getComputedStyle($(".iframe-class")).height, 10);
+  var iframe = doc.getElementsByTagName('.iframe-class')[0],
+  var IFRAME_HEIGHT = parseInt(getComputedStyle(iframe).height, 10);
 	
 	
 function transformStr(obj) 
@@ -75,7 +49,7 @@ function transformStr(obj)
   
   function onResize() 
 	{    
-	var winWidth = window.innerWidth,	
+	var winWidth = win.innerWidth,	
     var scale = Math.pow(winWidth / BREAKPOINT, 1.2);
     var width = 100 / scale;
     var height = IFRAME_HEIGHT / scale;
@@ -89,6 +63,10 @@ function transformStr(obj)
       
   }
 	
+  /** Listening to `window.resize`. */
+  win.addEventListener('resize', onResize(), false);
+	
+})(window.self, document);
 </script>
 	
 <div class="container">
