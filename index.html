@@ -15,15 +15,28 @@
     -webkit-transform: scale(1.0);
     transform:scale(1.0);
 }
+	
+.scalable-wrapper{
+  padding: 20px;
+  resize: both;
+  position: relative;
+  height: 840px;
+  width: 480px
+}
+	
 </style>
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type='text/javascript'>
 
-(function (win, doc) {
-  var iframe = $("#iframe-class");
-  
-  function onResize() {
+var $wrapper = $("#scaleable-wrapper");
+var $iframe = $("#iframe-class");
+	
+$wrapper.resizable({
+  resize: doResize
+});
+	
+function doResize(event, ui) {
   
 	var scale, origin;
     var parentDivHeight = iframe.parent().height();
@@ -33,39 +46,30 @@
 	{
 		scale = newRatio;
 	}
-  
-  doc.write(scale);
 	  
-  iframe.css({
+  $iframe.css({
     transform: "translate(-50%, -50%) " + "scale(" + scale + ")"
   });
 	  
-  iframe.css({
+  $iframe.css({
     -ms-transform: "translate(-50%, -50%) " + "scale(" + scale + ")"
   });
 	  
-  iframe.css({
+  $iframe.css({
     -moz-transform: "translate(-50%, -50%) " + "scale(" + scale + ")"
   });
 	  
-  iframe.css({
+  $iframe.css({
     -o-transform: "translate(-50%, -50%) " + "scale(" + scale + ")"
   });
 	  
-  iframe.css({
+  $iframe.css({
     -webkit-transform: "translate(-50%, -50%) " + "scale(" + scale + ")"
   });
-	  
-	  return onResize;
-  }
-  
-  /** Listening to `window.resize`. */
-  win.addEventListener('resize', onResize(), false);
-
-})(window.self, document);
+}
 </script>
 	
-<div class="container">
+<div class="scalable-wrapper">
                 <iframe class="iframe-class" src="https://acronymdigitalhosting.com/acrobuild/ReBoot/Build/index.html" frameborder="0"></iframe>
 </div><!-- /.container -->
 	
