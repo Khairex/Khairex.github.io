@@ -29,7 +29,8 @@ $(function() {
     var $window = $(window);
     var width = $window.width();
     var height = $window.height();
-
+    alert("Height:" + height);
+	
     setInterval(function () {
 		doResize();
     }, 300);
@@ -42,7 +43,6 @@ function doResize()
   	var ogRatio = ogHeight / ogWidth;
 	
   	var windowHeight = $(window).height();
-	alert("Height:" + windowHeight);
 	if(windowHeight < 854)
 	{
 	
