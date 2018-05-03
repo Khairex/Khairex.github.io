@@ -35,13 +35,13 @@ iframe {
   /** Below this point the scaling takes effect. */
   var BREAKPOINT = 854;
   var THROTTLE = 30;
-  var IFRAME_HEIGHT = 854;
+  var IFRAME_HEIGHT;
 
   var iframe = doc.getElementById("iframe");
   var timestamp = 0;
   
   /** Defining the inital iframe-height. */
-  /* IFRAME_HEIGHT = parseInt(getComputedStyle(iframe).height, 10); */
+  IFRAME_HEIGHT = parseInt(getComputedStyle(iframe).height, 10);
   
   function transformStr(obj) {
     var obj = obj || {},
