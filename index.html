@@ -4,7 +4,7 @@
 <style type="text/css">
 
 .container {
-    height: 854px;
+    height: 100%;
     width: 480px;
 }
 	
@@ -25,14 +25,8 @@ iframe-class {
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type='text/javascript'>
-/**
- * Scaling <iframe>-elements.
- * 
- * Emanuel Kluge
- * twitter.com/Herschel_R
- */
+
 (function (win, doc) {
-  /*var iframe = doc.getElementById('iframe');*/
   var iframe = $("iframe-class");
   
   function onResize() {
