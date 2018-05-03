@@ -12,7 +12,11 @@
 	width: 480px;
     	height: 854px;
    	border: 10px solid red;
-
+	-webkit-transform:scale(1.0);
+	-ms-transform:scale(1.0);
+    	-moz-transform:scale(1.0);
+    	-o-transform: scale(1.0);
+    	transform:scale(1.0);
 }
 	
 </style>
@@ -53,10 +57,10 @@ function doResize()
   $iframe.css({
     transform:"scale(" + test + ")"
   });
- */
+
     	$(".scalable-wrapper").addClass(".scalable-wrapper-resize");
-	
-	$(".scalable-wrapper-resize").css({
+ */	
+	$(".scalable-wrapper").css({
     	"webkitTransform":"scale(0.1)",
     	"MozTransform":"scale(0.1)",
    	"msTransform":"scale(0.1)",
