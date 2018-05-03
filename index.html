@@ -26,13 +26,16 @@ var $iframe = $("#iframe-class");
 var elHeight = $iframe.outerHeight();
 var elWidth = $iframe.outerWidth();
 	
-$(function () 
-{
-    doResize();
-    $(window).resize(function () 
-    {
-        doResize();
-    });
+$(function() {
+    var $window = $(window);
+    var width = $window.width();
+    var height = $window.height();
+
+    setInterval(function () {
+			doResize();
+            alert("resized!");
+        }
+    }, 300);
 });
 	
 function doResize() 
