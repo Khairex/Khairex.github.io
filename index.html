@@ -12,11 +12,7 @@
 	width: 480px;
     	height: 854px;
    	border: 10px solid red;
-	
-	-ms-transform:scale(1.0);
-    	-moz-transform:scale(1.0);
-    	-o-transform: scale(1.0);
-    	-webkit-transform: scale(1.0);
+
 }
 	
 </style>
@@ -58,9 +54,15 @@ function doResize()
     transform:"scale(" + test + ")"
   });
  */
-
-    $(".scalable-wrapper").addClass(".scalable-wrapper-resize");
-    $(".scalable-wrapper-resize").css({transform:"scale(" + test + ")"});
+    	$(".scalable-wrapper").addClass(".scalable-wrapper-resize");
+	
+	$(".scalable-wrapper-resize").css({
+    	"webkitTransform":"scale(0.1)",
+    	"MozTransform":"scale(0.1)",
+   	"msTransform":"scale(0.1)",
+    	"OTransform":"scale(0.1)",
+    	"transform":"scale(0.1)"
+});
 }
 </script>
 	
