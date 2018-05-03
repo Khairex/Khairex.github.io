@@ -37,21 +37,21 @@
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type='text/javascript'>
 
-(function (win, doc) {
-
 var $iframe = $("#iframe-class");
 	
 var elHeight = $iframe.outerHeight();
 var elWidth = $iframe.outerWidth();
 	
 var $wrapper = $("#scaleable-wrapper");
-
 	
-$wrapper.resizable({
-  resize: doResize
+$(function () {
+    doResize();
+    $(window).resize(function () {
+        doResize();
+    });
 });
 	
-function doResize(event, ui) {
+function doResize() {
   
 	var scale, origin;
     var parentDivHeight = iframe.parent().height();
@@ -61,8 +61,6 @@ function doResize(event, ui) {
 	{
 		scale = newRatio;
 	}
-	
-	doc.write(scale);
 	
   $iframe.css({
     transform: "translate(-50%, -50%) " + "scale(" + scale + ")"
@@ -92,8 +90,6 @@ var starterData = {
     width: $wrapper.width(),
     height: $wrapper.height()
  }
-	
-})(window.self, document);
 </script>
 	
 <div class="scalable-wrapper">
