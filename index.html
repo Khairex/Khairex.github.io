@@ -42,7 +42,7 @@ iframe {
   var timestamp = 0;
   
   /** Defining the inital iframe-height. */
-  IFRAME_HEIGHT = parseInt(getComputedStyle(iframe).height, 10);
+  IFRAME_HEIGHT = parseInt(getComputedStyle(iframe).style.height, 10);
   
   function transformStr(obj) {
     var obj = obj || {},
