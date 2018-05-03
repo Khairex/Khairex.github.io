@@ -27,9 +27,9 @@
 <script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script>
 <script type='text/javascript'>
 $(function () {
-    setIFrameSize();
+    onResize();
     $(window).resize(function () {
-        setIFrameSize();
+        onResize();
     });
 });
 
@@ -42,13 +42,40 @@ function setIFrameSize() {
     if (windowHeight < 450) {
         var parentDivHeight = $(".iframe-class").parent().height();
         var newWidth = (parentDivHeight / ogRatio);
+	    var newRatio = parentDivHeight / ogHeight;
         $(".iframe-class").addClass("iframe-class-resize");
         $(".iframe-class-resize").css("height", parentDivHeight);
         $(".iframe-class-resize").css("width", newWidth);
+		$(".iframe-class-resize").css("transform", scale(newRatio));
     } else {
-        $(".iframe-class").removeClass("iframe-class-resize").css({ width : '', height : '' });
+        $(".iframe-class").removeClass("iframe-class-resize").css({ width : '', height : '', transform : '' });
     }
 }
+	
+	
+function transformStr(obj) 
+{
+    var obj = obj || {},
+        val = '',
+        j;
+    for ( j in obj ) {
+      val += j + '(' + obj[j] + ') ';
+    }
+    val += 'translateZ(0)';
+    return '-webkit-transform: ' + val + '; ' +
+            '-moz-transform: ' + val + '; ' +
+            'transform: ' + val;
+  }
+  
+  function onResize() 
+	{    
+    $(".iframe-class").setAttribute('style', transformStr({
+      scale: scale,
+      translateX: '-' + offsetLeft + '%'
+    }) + '; width: ' + width + '%; ' + 'height: ' + height + 'px');
+      
+  }
+	
 </script>
 	
 <div class="container">
