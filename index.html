@@ -57,7 +57,7 @@ function doResize()
 {
   
 	var scale, origin;
-    var parentDivHeight = iframe.parent().height();
+    var parentDivHeight = $iframe.parent().height();
 	var newRatio = parentDivHeight / 854;
 	scale = 1.0;
 	if(newRatio < 1.0)
