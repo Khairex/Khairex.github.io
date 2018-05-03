@@ -16,22 +16,6 @@
     transform:scale(1.0);
 }
 	
-.scalable-wrapper{
-  padding: 20px;
-  resize: both;
-  position: relative;
-  height: 840px;
-  width: 480px
-}
-	
-.ui-resizable-se {
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-	
 </style>
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -41,8 +25,6 @@ var $iframe = $("#iframe-class");
 	
 var elHeight = $iframe.outerHeight();
 var elWidth = $iframe.outerWidth();
-	
-var $wrapper = $("#scaleable-wrapper");
 	
 $(function () 
 {
@@ -64,6 +46,8 @@ function doResize()
 	{
 		scale = newRatio;
 	}
+
+  $(document).write(scale);
 	
   $iframe.css({
     transform: "translate(-50%, -50%) " + "scale(" + scale + ")"
