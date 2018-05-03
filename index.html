@@ -43,7 +43,7 @@ iframe-class {
   var timestamp = 0;
   
   /** Defining the inital iframe-height. */
-   IFRAME_HEIGHT = parseInt(getComputedStyle(iframe).style.height, 10); 
+  /* IFRAME_HEIGHT = parseInt(getComputedStyle(iframe).style.height, 10); */
   
   
 	
@@ -62,34 +62,21 @@ iframe-class {
   
   function onResize() {
   
-    var now = +new Date,
-        winWidth = win.innerWidth,
-        noResizing = winWidth > BREAKPOINT,
-        scale,
-        width,
-        height,
-        offsetLeft;
-    
-    if ( now - timestamp < THROTTLE || noResizing ) {
-      /** Remove the style-attr if we're out of the "scaling-zone". */
-      /* noResizing && iframe.hasAttribute('style') && iframe.removeAttribute('style'); */
-      return onResize;
-    }
-    
-    timestamp = now;  
-    scale = Math.pow(winWidth / BREAKPOINT, 1.2);   
-    width = 100 / scale;
-    height = IFRAME_HEIGHT / scale;
-    offsetLeft = (width - 100) / 2;
-    
-    /** Setting the styles. */
-    iframe.setAttribute('style', transformStr({
-      scale: scale,
-      translateX: '-' + offsetLeft + '%'
-    }) + '; width: ' + width + '%; ' + 'height: ' + height + 'px');
-    
-    return onResize;
+	var scale, origin;
+    var parentDivHeight = iframe.parent().height();
+	var newRatio = parentDivHeight / 854;
+	scale = 1;
+	if(newRatio < 1)
+	{
+		scale = newRatio
+	}
+  );
   
+  iframe.css({
+    transform: "translate(-50%, -50%) " + "scale(" + scale + ")"
+  });
+	  
+	  return onResize;
   }
   
   /** Listening to `window.resize`. */
