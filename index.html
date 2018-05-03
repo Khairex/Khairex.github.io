@@ -49,22 +49,13 @@ function doResize()
 	{
 		scale = newRatio;
 	}
-	
-	var test = 0.5;
 
-/*
-  $iframe.css({
-    transform:"scale(" + test + ")"
-  });
-
-    	$(".scalable-wrapper").addClass(".scalable-wrapper-resize");
- */	
 	$(".scalable-wrapper").css({
-    	"webkitTransform":"scale(" + test + ")",
-    	"MozTransform":"scale(" + test + ")",
-		"msTransform":"scale(" + test + ")",
-    	"OTransform":"scale(" + test + ")",
-    	"transform":"scale(" + test + ")"
+		"webkitTransform":"scale(" + scale + ")",
+		"MozTransform":"scale(" + scale + ")",
+		"msTransform":"scale(" + scale + ")",
+		"OTransform":"scale(" + scale + ")",
+		"transform":"scale(" + scale + ")"
 });
 }
 </script>
