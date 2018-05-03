@@ -53,28 +53,17 @@ function doResize()
 	}
 	
 	var test = 0.1;
-	
-  $iframe.css({
-    transform:"scale(" + test + ")"
-  });
 
 /*
   $iframe.css({
-    -ms-transform: "translate(-50%, -50%) " + "scale(" + scale + ")"
+    transform:"scale(" + test + ")"
   });
-	  
-  $iframe.css({
-    -moz-transform: "translate(-50%, -50%) " + "scale(" + scale + ")"
-  });
-	  
-  $iframe.css({
-    -o-transform: "translate(-50%, -50%) " + "scale(" + scale + ")"
-  });
-	  
-  $iframe.css({
-    -webkit-transform: "translate(-50%, -50%) " + "scale(" + scale + ")"
-  });
-  */
+ */
+
+    var parentDivWidth = $iframe.parent().width();
+    var newHeight = (parentDivWidth / ogRatio);
+    $(".scalable-wrapper").addClass(".scalable-wrapper-resize");
+    $(".scalable-wrapper-resize").css({transform:"scale(" + test + ")"});
 }
 </script>
 	
