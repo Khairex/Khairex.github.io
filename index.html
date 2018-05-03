@@ -29,6 +29,8 @@
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type='text/javascript'>
 
+(function (win, doc) {
+	
 var $wrapper = $("#scaleable-wrapper");
 var $iframe = $("#iframe-class");
 	
@@ -46,7 +48,9 @@ function doResize(event, ui) {
 	{
 		scale = newRatio;
 	}
-	  
+	
+	doc.write(scale);
+	
   $iframe.css({
     transform: "translate(-50%, -50%) " + "scale(" + scale + ")"
   });
@@ -69,6 +73,8 @@ function doResize(event, ui) {
   });
   */
 }
+	
+})(window.self, document);
 </script>
 	
 <div class="scalable-wrapper">
