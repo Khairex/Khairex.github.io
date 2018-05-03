@@ -42,7 +42,7 @@ iframe {
   var timestamp = 0;
   
   /** Defining the inital iframe-height. */
-  IFRAME_HEIGHT = parseInt(getComputedStyle(iframe).style.height, 10);
+  /* IFRAME_HEIGHT = parseInt(getComputedStyle(iframe).style.height, 10); */
   
   function transformStr(obj) {
     var obj = obj || {},
@@ -69,7 +69,7 @@ iframe {
     
     if ( now - timestamp < THROTTLE || noResizing ) {
       /** Remove the style-attr if we're out of the "scaling-zone". */
-      noResizing && iframe.hasAttribute('style') && iframe.removeAttribute('style');
+      /* noResizing && iframe.hasAttribute('style') && iframe.removeAttribute('style'); */
       return onResize;
     }
     
