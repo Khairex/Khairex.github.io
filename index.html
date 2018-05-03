@@ -5,7 +5,7 @@
 
 .container {
     height: 100%;
-    width: 480px;
+    width: 200px;
 }
 	
 .iframe-class {
@@ -30,7 +30,7 @@ function setIFrameSize() {
     var ogRatio = ogHeight / ogWidth;
 
     var windowHeight = $(window).height();
-    if (windowHeight < 900) {
+    if (windowHeight < 450) {
         var parentDivHeight = $(".iframe-class").parent().height();
         var newWidth = (parentDivHeight / ogRatio);
         $(".iframe-class").addClass("iframe-class-resize");
