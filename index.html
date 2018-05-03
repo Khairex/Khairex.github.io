@@ -25,9 +25,6 @@
 
 var $iframe = $("#scalable-wrapper");
 	
-var elHeight = $iframe.outerHeight();
-var elWidth = $iframe.outerWidth();
-	
 $(function() {
     var $window = $(window);
     var width = $window.width();
@@ -40,15 +37,17 @@ $(function() {
 	
 function doResize() 
 {
-  
-	var scale, origin;
-	var parentDivHeight = $iframe.parent().height();
-	var newRatio = $(window).height / 854;
-	scale = 1.0;
-	if(newRatio < 1.0)
+	var ogWidth = 480;
+  	var ogHeight = 854;
+  	var ogRatio = ogHeight / ogWidth;
+	
+  	var windowHeight = $(window).height();
+	if(windowHeight < 854)
 	{
-		scale = newRatio;
-	}
+	
+		var parentDivHeight = $iframe.parent().height();
+		var newWidth = (parentDivHeight / ogRatio);
+		var scale = parentDivHeight / ogHeight;
 
 	$(".scalable-wrapper").css({
 		"webkitTransform":"scale(" + scale + ")",
@@ -56,6 +55,16 @@ function doResize()
 		"msTransform":"scale(" + scale + ")",
 		"OTransform":"scale(" + scale + ")",
 		"transform":"scale(" + scale + ")"
+	}
+	else
+	{
+		$(".scalable-wrapper").css({
+		"webkitTransform":"",
+		"MozTransform":"",
+		"msTransform":"",
+		"OTransform":"",
+		"transform":""		   
+	}
 });
 }
 </script>
