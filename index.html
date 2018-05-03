@@ -11,7 +11,6 @@
 .scalable-wrapper{
 	width: 480px;
     	height: 854px;
-   	border: 10px solid red;
 	-webkit-transform:scale(1.0);
 	-ms-transform:scale(1.0);
     	-moz-transform:scale(1.0);
@@ -43,7 +42,7 @@ function doResize()
 {
   
 	var scale, origin;
-    var parentDivHeight = $iframe.parent().height();
+	var parentDivHeight = $iframe.parent().height();
 	var newRatio = $(window).height / 854;
 	scale = 1.0;
 	if(newRatio < 1.0)
@@ -51,7 +50,7 @@ function doResize()
 		scale = newRatio;
 	}
 	
-	var test = 0.1;
+	var test = 0.5;
 
 /*
   $iframe.css({
@@ -61,11 +60,11 @@ function doResize()
     	$(".scalable-wrapper").addClass(".scalable-wrapper-resize");
  */	
 	$(".scalable-wrapper").css({
-    	"webkitTransform":"scale(0.1)",
-    	"MozTransform":"scale(0.1)",
-   	"msTransform":"scale(0.1)",
-    	"OTransform":"scale(0.1)",
-    	"transform":"scale(0.1)"
+    	"webkitTransform":"scale(" + test + ")",
+    	"MozTransform":"scale(" + test + ")",
+		"msTransform":"scale(" + test + ")",
+    	"OTransform":"scale(" + test + ")",
+    	"transform":"scale(" + test + ")"
 });
 }
 </script>
