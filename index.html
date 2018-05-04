@@ -28,7 +28,7 @@ var $iframe = $("#scalable-wrapper");
 	
 $(function() {	
     setInterval(function () {
-	        alert("height");
+	        /*alert($(window).height());*/
 		doResize();
     }, 300);
 });
@@ -47,8 +47,6 @@ function doResize()
 		var parentDivHeight = $iframe.parent().height();
 		var newWidth = (parentDivHeight / ogRatio);
 		var scale = parentDivHeight / ogHeight;
-
-		scale = 0.1;
 		
 		$(".scalable-wrapper").css({
 		"webkitTransform":"scale(" + scale + ")",
