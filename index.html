@@ -11,7 +11,7 @@
 .scalable-wrapper{
 	width: 480px;
     	height: 854px;
-	border: 10px solid green;
+	border: 10px solid purple;
 	-webkit-transform:scale(1.0);
 	-ms-transform:scale(1.0);
     	-moz-transform:scale(1.0);
@@ -47,6 +47,8 @@ function doResize()
 		var parentDivHeight = $iframe.parent().height();
 		var newWidth = (parentDivHeight / ogRatio);
 		var scale = parentDivHeight / ogHeight;
+		
+		alert("scale: " + scale);
 		
 		$(".scalable-wrapper").css({
 		"webkitTransform":"scale(" + scale + ")",
